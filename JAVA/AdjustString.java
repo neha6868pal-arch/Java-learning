@@ -9,14 +9,23 @@ public class AdjustString {
         System.out.println("请输入B");
         String B = sc.next();
         System.out.println(adjust(A,B));
+        //两个A能把所有可能的情况都包进去了，相当于在两个A上平移查找
     }
     public static boolean adjust(String A,String B){
+        if (A.length()!=B.length()){
+            return false;
+        }
+        if (A.equals(B)){
+            return  true;
+        }
         for (int i = 0; i < A.length(); i++) {
             StringBuilder sb = new StringBuilder();
             for (int j = i+1; j <A.length() ; j++) {
                 sb.append(A.charAt(j));
             }
-            sb.append(A.charAt(i));
+            for (int j = 0; j <=i; j++) {
+                sb.append(A.charAt(j));
+            }
             if (sb.toString().equals(B)){
                 return true;
             }
