@@ -15,20 +15,8 @@ public class AdjustString {
         if (A.length()!=B.length()){
             return false;
         }
-        if (A.equals(B)){
-            return  true;
-        }
-        for (int i = 0; i < A.length(); i++) {
-            StringBuilder sb = new StringBuilder();
-            for (int j = i+1; j <A.length() ; j++) {
-                sb.append(A.charAt(j));
-            }
-            for (int j = 0; j <=i; j++) {
-                sb.append(A.charAt(j));
-            }
-            if (sb.toString().equals(B)){
-                return true;
-            }
+        if ((A+A).contains(B)){
+            return true;
         }
         return false;
     }
