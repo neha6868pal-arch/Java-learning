@@ -35,9 +35,16 @@ public class RomanNumerals {
             char c = num.charAt(i);//现在遍历出字符，就可以根据ascii表来限定数字
             //怪不得字符有表
             if (c<'0'||c>'9'){//运算中，直接写字符就行，会自动转为int
-                flag = false;
+                flag = false;//判断另一个范围也可以，就是true都不能写在里面，false写在else里，写的要多
             }
         }
-        return flag;
+        return flag;//也可以不设flag，直接代
+//        for (int i = 0; i < num.length(); i++) {
+//            char ch = num.charAt(i);
+//            if (ch <'0'||ch>'9'){
+//                return false;
+//            }
+//        }
+//        return  true;
     }
 }
