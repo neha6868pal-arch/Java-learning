@@ -8,16 +8,21 @@ public class AdjustString {
         String A = sc.next();//"abcd"
         System.out.println("请输入B");
         String B = sc.next();
-        System.out.println(adjust(A,B));
-        //两个A能把所有可能的情况都包进去了，相当于在两个A上平移查找
+        System.out.println(check(A,B));
+
     }
-    public static boolean adjust(String A,String B){
-        if (A.length()!=B.length()){
-            return false;
-        }
-        if ((A+A).contains(B)){
-            return true;
+    public static boolean check(String A,String B){
+        for (int i = 0; i < A.length(); i++) {
+            A = adjust(A);//新的用原变量承接，这样就在此基础上再进行了
+            if (A.equals(B)){
+                return true;
+            }
         }
         return false;
+    }
+    public static String adjust(String A){
+        char begin = A.charAt(0);
+        String end = A.substring(1);
+        return end+begin;
     }
 }
