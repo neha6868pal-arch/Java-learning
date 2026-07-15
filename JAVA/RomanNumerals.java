@@ -14,7 +14,7 @@ public class RomanNumerals {
         sb.append(sc.nextLine());
         String result = "";
         for (int i = 0; i < arr.length; i++) {
-             result = sb.toString().replace('i',arr[i]);
+             result = sb.toString().replace('i',arr[i]);//因为前面替换的是小写字母i，而非我想要的数字
         }
         System.out.println(result);
         //为什么
