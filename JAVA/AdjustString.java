@@ -21,8 +21,13 @@ public class AdjustString {
         return false;
     }
     public static String adjust(String A){
-        char begin = A.charAt(0);
-        String end = A.substring(1);
-        return end+begin;
+       char[] arr = A.toCharArray();//把字符串转成字符数组
+        char temp = arr[0];//拿出来的变量暂存一下
+        for (int i = 1; i < arr.length; i++) {
+            arr[i-1] = arr[i];
+        }
+        arr[arr.length-1] = temp;
+        String result = new String(arr);//String new出来的空参可填字符、字节（数组）
+        return result;
     }
 }
