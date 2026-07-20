@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -31,18 +32,12 @@ public class studentSystem {
         Student stu = new Student();
         int id;//在外面之把名字写上就可以访问了
         while (true){
-            boolean flag = true;//放外面的话，之前错了一遍就一直是false了
             System.out.println("请输入id");
             id = sc.nextInt();
-            for (int i = 0; i < list.size(); i++) {
-                int compare = list.get(i).getId();
-                if (compare ==id){
-                    System.out.println("已有id，请重新输入");
-                    flag = false;
-                    break;
-                }
-            }
+            boolean flag = list.contains(id);//用方法比遍历判断更快
             if (flag){
+                System.out.println("id已存在，请重新输入");
+            }else {
                 stu.setId(id);
                 break;
             }
@@ -68,12 +63,13 @@ public class studentSystem {
             int compare = list.get(i).getId();
             if (compare ==id){
                 list.remove(i);
+                System.out.println("id为：" +id+"的学生删除成功");
                 flag = false;
                 break;
             }
         }
         if (flag){
-            System.out.println("id不存在");
+            System.out.println("id不存在，删除失败");
         }
     }
     public static void update(ArrayList<Student> list){
@@ -110,5 +106,14 @@ public class studentSystem {
           }
       }
     }
+//    public static int getIndex(ArrayList<Student> list,int id){
+//        for (int i = 0; i < list.size(); i++) {
+//            int compare = list.get(i).getId();
+//            if (compare ==id){
+//                return i;
+//            }
+//        }
+//        return -1;
+//    }
 }
 
