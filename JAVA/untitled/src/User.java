@@ -2,7 +2,7 @@ public class User {
     private String name;
     private String password;
     private String id;
-    private int phonenumber;
+    private String phonenumber;
 
     public User() {
     }
@@ -31,15 +31,15 @@ public class User {
         this.id = id;
     }
 
-    public int getPhonenumber() {
+    public String getPhonenumber() {
         return phonenumber;
     }
 
-    public void setPhonenumber(int phonenumber) {
+    public void setPhonenumber(String phonenumber) {
         this.phonenumber = phonenumber;
     }
 
-    public User(String name, String password, String id, int phonenumber) {
+    public User(String name, String password, String id, String phonenumber) {
         this.name = name;
         this.password = password;
         this.id = id;
