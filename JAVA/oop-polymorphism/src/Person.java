@@ -25,8 +25,14 @@ public class Person {
         this.name = name;
         this.age = age;
     }
-    public void keepPet(Animal ani,String sth){
-        System.out.println("年龄为"+age+"岁的"+name+"养了一只"+ani.getColor()+"颜色的"+ani.getAge()+"岁的狗");
-        ani.eat(sth);
+    public void keepPet(Animal a,String sth){
+        if (a instanceof Dog d){
+            System.out.println("年龄为"+age+"岁的"+name+"养了一只"+a.getColor()+"颜色的"+a.getAge()+"岁的狗");
+            a.eat(sth);
+        }else if (a instanceof Cat c){
+            System.out.println("年龄为"+age+"岁的"+name+"养了一只"+a.getColor()+"颜色的"+a.getAge()+"岁的猫");
+            a.eat(sth);
+        }
+
     }
 }
