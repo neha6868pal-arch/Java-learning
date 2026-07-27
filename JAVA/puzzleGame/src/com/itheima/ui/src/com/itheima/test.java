@@ -13,14 +13,19 @@ public class test {
             arr[i] = arr[index];
             arr[index] = temp;
         }
-        int number = 0;
         int [][] result = new int[4][4];
-        for (int i = 0; i < result.length; i++) {
-            for (int i1 = 0; i1 < 4; i1++) {
-                result[i][i1] = arr[number];
-                number++;
-            }
+        for (int i = 0; i < arr.length; i++) {
+            //用满四进一的想法放
+            result[i/4][i%4] = arr[i];
         }
+//        int number = 0;
+//        int [][] result = new int[4][4];
+//        for (int i = 0; i < result.length; i++) {
+//            for (int i1 = 0; i1 < 4; i1++) {
+//                result[i][i1] = arr[number];
+//                number++;
+//            }
+
         for (int i = 0; i < result.length; i++) {
             for (int i1 = 0; i1 < 4; i1++) {
                 System.out.print(result[i][i1]+" ");
