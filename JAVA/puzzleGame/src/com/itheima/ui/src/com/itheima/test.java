@@ -15,9 +15,10 @@ public class test {
         }
         int [][] result = new int[4][4];
         for (int i = 0; i < arr.length; i++) {
-            //用满四进一的想法放
+            //用满四进一的想法放，遍历一维数组
             result[i/4][i%4] = arr[i];
         }
+        //遍历二维数组
 //        int number = 0;
 //        int [][] result = new int[4][4];
 //        for (int i = 0; i < result.length; i++) {

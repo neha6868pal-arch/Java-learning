@@ -1,43 +1,78 @@
 package com.itheima.ui;
 
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.Random;
 
-public class GameJFrame extends JFrame {
+public class GameJFrame extends JFrame implements KeyListener {
+    int [][] result = new int[4][4];
+    int x = 0;
+    int y = 0;
     //不能都写在一个main方法里——>分类
     //写成类的形式，就可直接继承jframe
     //在构造参数中完成初始化
     public GameJFrame() {
         initJFrame();
         initJMenuBar();
+        //打乱数据
+        initData();
+        //根据数据放图片
         initImage();
         this.setVisible(true);//默认隐藏，需要方法调用
     }
-
-    private void initImage() {
+    private void initData(){
+        Random r = new Random();
         int[] arr ={0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
         for (int i = 0; i < arr.length; i++) {
-            Random r = new Random();
             int index = r.nextInt(16);
             int temp = arr[i];
             arr[i] = arr[index];
             arr[index] = temp;
         }
-        int number = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            //找0，标记0的坐标
+            //用坐标的想法放，遍历一维数组
+            result[i%4][i/4] = arr[i];
+        }
+        //遍历二维数组
+//        int number = 0;
+//        int [][] result = new int[4][4];
+//        for (int i = 0; i < result.length; i++) {
+//            for (int i1 = 0; i1 < 4; i1++) {
+//                result[i][i1] = arr[number];
+//                number++;
+//            }
+    }
+
+    private void initImage() {
+        //先加载图片在上面，后加载的在下面
         for (int j = 0; j < 4; j++) {
             for (int i = 0; i < 4; i++) {
                 //创建Java容器能接收的图片,用路径来接收
     //            ImageIcon icon = new ImageIcon("D:\\code\\JAVA\\puzzleGame\\src\\image\\animal\\animal1\\1.jpg");//先打引号再复制，格式才对
+                int num = result[i][j];
                 //创建Java能操作的容器
-                JLabel jLabel = new JLabel(new ImageIcon("D:\\code\\JAVA\\puzzleGame\\src\\image\\animal\\animal1\\"+arr[number]+".jpg"));
+                //绝对路径：从盘开始
+                //相对路径：从项目名后开始（不包括项目名）
+                JLabel jLabel = new JLabel(new ImageIcon("src\\image\\animal\\animal1\\"+num+".jpg"));
                 //操作：指定图片位置,坐标轴以左上角为原点,图片也以左上角的点
-                jLabel.setBounds(105*i,105*j,105,105);
+                jLabel.setBounds(105*i+83,105*j+134,105,105);
+                //添加边框
+                //BevelBolder斜着的边框，0突起的，1下凹的
+                jLabel.setBorder(new BevelBorder(0));
                 //把管理容器添加到界面中
-                //取消默认设置后，还需获取大容器才能调用
+                //取消默认设置后，还需获取窗体界面才能调用
+                //this就是在该类去找
                 this.getContentPane().add(jLabel);
-                number++;
             }
         }
+        JLabel background = new JLabel(new ImageIcon("src\\image\\background.png"));
+        background.setBounds(40,40,508,560);
+        this.getContentPane().add(background);
     }
 
     private void initJMenuBar() {
@@ -73,5 +108,31 @@ public class GameJFrame extends JFrame {
         this.setDefaultCloseOperation(3);
         //窗体自带容器，不取消就默认居中，取消后才能按坐标轴的方式添加
         this.setLayout(null);
+        this.addKeyListener(this);//继承只是省去写类，该add还是add
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        int code = e.getKeyCode();
+        //←37 ↑38 →39 ↓40
+        if (code==37){
+            System.out.println("zuo");
+        }else if (code==38){
+
+        }else if (code==39){
+
+        }else if (code==40){
+
+        }
     }
 }
