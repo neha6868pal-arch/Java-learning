@@ -8,5 +8,13 @@ public class regexDemo {
         System.out.println("139456790271".matches(regex1));
 
         System.out.println("------------");
+
+        //验证座机电话号码 020-2324242 02122442 027-42424 0712-3242434
+        String regex2 = "0[1-9]\\d{1,2}-?[1-9]\\d{4,9}";
+//        String regex2 = "0\\d{2,3}-?[1-9]\\d{4,9}";
+        System.out.println("020-2324242".matches(regex2));
+        System.out.println("02122442".matches(regex2));
+        System.out.println("027-42424".matches(regex2));
+        System.out.println("0712-3242434".matches(regex2));
     }
 }
