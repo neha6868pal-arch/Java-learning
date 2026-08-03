@@ -27,4 +27,5 @@ public class regexDemo {
         System.out.println("dlei0009@163.com".matches(regex3));
         System.out.println("dlei0009@pci.com.cn".matches(regex3));
     }
+
 }
