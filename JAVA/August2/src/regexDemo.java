@@ -16,5 +16,15 @@ public class regexDemo {
         System.out.println("02122442".matches(regex2));
         System.out.println("027-42424".matches(regex2));
         System.out.println("0712-3242434".matches(regex2));
+
+        System.out.println("------------");
+
+        //邮箱号码
+        //3232323@qq.com zhangsan@itcast.cnn dlei0009@163.com dlei0009@pci.com.cn
+        String regex3 = "\\w+@[\\w&&[^_]]{1,8}(\\.[a-zA-Z]{2,3}){1,2}";
+        System.out.println("3232323@qq.com".matches(regex3));
+        System.out.println("zhangsan@itcast.cnn".matches(regex3));
+        System.out.println("dlei0009@163.com".matches(regex3));
+        System.out.println("dlei0009@pci.com.cn".matches(regex3));
     }
 }
