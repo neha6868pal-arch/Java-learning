@@ -24,8 +24,9 @@ public class Demo1 {
         Pattern test = Pattern.compile(regex);
         Matcher phone = test.matcher(str);
         while (phone.find()){
-            String result = phone.group();
-            System.out.println(result);
+//            String result = phone.group();
+//            System.out.println(result);
+            System.out.println(phone.group());//原来是正则表达式写错了
         }
     }
 }
