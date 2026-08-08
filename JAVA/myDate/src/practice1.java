@@ -10,11 +10,17 @@ public class practice1 {
             System.out.println("请输入一些个1~100之间的整数");
             String numStr = sc.nextLine();
             int num = Integer.parseInt(numStr);
-            if (num>=1&&num<=100){
-                list.add(num);
-            }else {
+//            if (num>=1&&num<=100){
+//                list.add(num);
+//            }else {
+//                System.out.println("不在范围内，请重新输入");
+//            }
+            //过滤异常数据
+            if (num<1||num>100){
                 System.out.println("不在范围内，请重新输入");
+                continue;
             }
+            list.add(num);
             int sum = getSum(list);
             if (sum>=200){
                 break;
