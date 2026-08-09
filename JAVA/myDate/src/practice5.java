@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Scanner;
 
@@ -8,12 +9,24 @@ public class practice5 {
         System.out.println("请输入一个年份");
         int year = sc.nextInt();
         Calendar c = Calendar.getInstance();
-        c.set(year,3,1);
+        c.set(year,2,1);
         c.add(Calendar.DAY_OF_MONTH,-1);
         if (c.get(Calendar.DAY_OF_MONTH) == 28){
             System.out.println(year + "年是平年");
         } else {
             System.out.println(year + "年是闰年");
         }
+        System.out.println("-----------------");
+        LocalDate ld = LocalDate.of(year, 2, 1);
+        LocalDate ld2 = ld.minusDays(1);
+        int day2 = ld2.getDayOfMonth();
+        if (day2 == 28){
+            System.out.println(year + "年是平年");
+        } else {
+            System.out.println(year + "年是闰年");
+        }
+        System.out.println("-----------------");
+        System.out.println(ld.isLeapYear() ? year + "年是闰年" : year + "年是平年");
+
     }
 }
