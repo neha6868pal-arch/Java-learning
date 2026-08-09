@@ -6,12 +6,18 @@ public class practice2 {
       // 要求:字符串中只能是数字不能有其他字符.最少一位，最多10位.0不能开头
         Scanner sc = new Scanner(System.in);
         System.out.println("请输入1~10位的数字");
+        String regex = "[1-9]\\d{0,9}";
         String number = sc.nextLine();
-        int sum = 0;
-        for (int i = 0; i < number.length(); i++) {
-            sum = sum*10+(number.charAt(i)-48);
-            System.out.println(number.charAt(i)+0);
+        if (number.matches(regex)){
+            int sum = 0;
+            for (int i = 0; i < number.length(); i++) {
+                sum = sum*10+(number.charAt(i)-48);
+                System.out.println(number.charAt(i)+0);
+            }
+            System.out.println(sum);
+        }else {
+            System.out.println("格式错误");
         }
-        System.out.println(sum);
+
     }
 }
