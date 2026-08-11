@@ -10,8 +10,8 @@ public class demoBlockSearch {
         blocks[0] = new block(22,40,0,4);
         blocks[1] = new block(13,20,5,8);
         blocks[2] = new block(7,10,9,10);
-        blocks[3] = new block(43,50,11,12);
-        int number = 22;
+        blocks[3] = new block(43,50,11,13);
+        int number = 48;
         int index = searchIndex(arr, blocks, number);
         System.out.println("The index of "+number+" is "+index);
     }
