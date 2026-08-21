@@ -17,4 +17,12 @@ public class MyArrayList <E>{
         }
         return (E)obj[index];
     }
+
+    @Override
+    public String toString() {
+        return "MyArrayList{" +
+                "obj=" + java.util.Arrays.toString(obj) +
+                ", size=" + size +
+                '}';
+    }
 }
